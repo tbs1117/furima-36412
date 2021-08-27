@@ -16,13 +16,13 @@
 ### Association
 
 - has_many :items
-- has_many :orders
+- has_many :buyers
 
 ## items テーブル
 
 | Column             | Type       | Options                        |
 |--------------------|------------|--------------------------------|
-| name_id            | integer    | null: false                    |
+| name               | integer    | null: false                    |
 | category_id        | integer    | null: false                    |
 | price              | integer    | null: false                    |
 | explanation        | text       | null: false                    |
@@ -30,28 +30,40 @@
 | shipping_id        | integer    | null: false                    |
 | shipment_source_id | integer    | null: false                    |
 | shipping_days_id   | integer    | null: false                    |
-| user_id            | references | null: false, foreign_key: true |
-| order              | references | null: false, foreign_key: true |
+| user               | references | null: false, foreign_key: true |
+| buyer              | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
-- has_one :order
+- belongs_to :buyer
 
 ## buyers テーブル
 
 | Column           | Type       | Options                        |
 |------------------|------------|--------------------------------|
 | buyer            | string     | null: false                    |
-| postal_code      | string     | null: false                    |
-| prefectures      | string     | null: false                    |
-| address          | string     | null: false                    |
-| building_name    | string     | null: false                    |
-| number           | string     | null: false                    |
-| user_id          | references | null: false, foreign_key: true |
-| item_id          | references | null: false, foreign_key: true |
+| name             | integer    | null: false                    |
+| item             | references | null: false, foreign_key: true |
+| address          | references | null: false, foreign_key: true |
 
 ### Association
 
-- belongs_to :user
-- belongs_to :item
+- has_many :items
+- has_one :address
+
+## address テーブル
+
+| Column           | Type       | Options                        |
+|------------------|------------|--------------------------------|
+| postal_code      | string     | null: false                    |
+| prefectures      | string     | null: false                    |
+| city             | string     | null: false                    |
+| house_number     | string     | null: false                    |
+| building_name    | string     | null: false                    |
+| telephone_number | string     | null: false                    |
+| buyer            | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :buyer
