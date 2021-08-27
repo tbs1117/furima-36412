@@ -54,10 +54,10 @@
 
 | Column           | Type       | Options                        |
 |------------------|------------|--------------------------------|
-| postal_code_id   | integer    | null: false                    |
-| prefectures_id   | integer    |                                |
-| city             | string     |                                |
-| house_number     | string     |                                |
+| postal_code      | integer    | null: false                    |
+| prefectures_id   | integer    | null: false                    |
+| city             | string     | null: false                    |
+| house_number     | string     | null: false                    |
 | building_name    | string     |                                |
 | telephone_number | string     | null: false                    |
 | buyer            | references | null: false, foreign_key: true |
