@@ -4,6 +4,15 @@ class ItemsController < ApplicationController
     @item = Item.new
   end
 
+  def create
+    Item.create(item_params)
+  end
+
+  private
+  def item_params
+    params.require(:item).permit(:name, :category_id, :price, :explanation, :condition_id, :shipping_id, :prefectures_id, :shipping_days_id, :user)
+  end
+
   def edit
   end
 
