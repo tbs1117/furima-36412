@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :items
-  # has_many :orders
+  has_many :orders
   
   validates :password,format:{with: /\A(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{7,}+\z/}
   with_options presence: true, format:{ with: /\A[ぁ-んァ-ン一-龥]+\z/} do
