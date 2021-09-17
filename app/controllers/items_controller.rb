@@ -25,6 +25,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    
   end
 
   def update
@@ -61,7 +62,12 @@ class ItemsController < ApplicationController
   end
   
   def set_redirect
-    redirect_to root_path unless current_user.id == @item.user_id
+    if current_user.id != @item.user_id
+      redirect_to root_path
+    elsif
+      @item.order != nil
+      redirect_to root_path
+    end
   end
   
 
