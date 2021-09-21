@@ -16,7 +16,7 @@ class Item < ApplicationRecord
   validates :shipping_days_id, numericality: { other_than: 1 , message: "can't be blank"}
   validates :name,             presence: true
   validates :price,            presence: true, format:{ with: /\A[-]?[0-9]+(\.[0-9]+)?\z/}, numericality: { only_integer: true,
-    greater_than: 300, less_than: 10000000 }
+    greater_than: 299, less_than: 10000000 }
   validates :explanation,      presence: true
   validates :image,            presence: true
 end
